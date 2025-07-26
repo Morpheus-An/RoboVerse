@@ -37,6 +37,34 @@ class BaseDetector:
 
 
 @configclass
+class CombinedDetector(BaseDetector):
+    """A class to combine two detectors."""
+
+    detector1: BaseDetector = MISSING
+    """The first detector."""
+    detector2: BaseDetector = MISSING
+    """The second detector."""
+
+    def reset(self, handler: BaseSimHandler, env_ids: list[int] | None = None):
+        self.detector1.reset(handler, env_ids)
+        self.detector2.reset(handler, env_ids)
+
+    def is_detected(self, handler: BaseSimHandler, obj_name: str) -> torch.BoolTensor:
+        return self.detector1.is_detected(handler, obj_name) & self.detector2.is_detected(handler, obj_name)
+
+    def get_debug_viewers(self) -> list[BaseObjCfg]:
+        viewers = []
+        viewers.extend(self.detector1.get_debug_viewers())
+        viewers.extend(self.detector2.get_debug_viewers())
+        return viewers
+
+    def reset_debug_viewer(self, handler: BaseSimHandler, env_ids: list[int]):
+        """Reset the debug viewer for both detectors."""
+        self.detector1.reset_debug_viewer(handler, env_ids)
+        self.detector2.reset_debug_viewer(handler, env_ids)
+
+
+@configclass
 class RelativeBboxDetector(BaseDetector):
     """Check if the object is in the bounding box detector.
 

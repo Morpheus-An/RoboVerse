@@ -17,6 +17,13 @@
         maniskill.PickCubeCfg
         maniskill.PickSingleYcbCrackerBoxCfg
         maniskill.StackCubeCfg
+        maniskill.PlaceSphereCfg
+        maniskill.PokeCubeCfg
+        maniskill.PullCubeCfg
+        maniskill.PullCubeToolCfg
+        maniskill.PushCubeCfg
+        maniskill.RollBallCfg
+        maniskill.StackPyramidCfg
 
    .. rubric:: RLBench Tasks
 

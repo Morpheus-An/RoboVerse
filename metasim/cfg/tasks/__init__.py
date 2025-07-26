@@ -33,7 +33,14 @@ def __get_quick_ref():
     from .libero.libero_objects.libero_pick_tomato_sauce import LiberoPickTomatoSauceCfg
     from .maniskill.pick_cube_cfg import PickCubeCfg
     from .maniskill.pick_single_ycb import PickSingleYcbCrackerBoxCfg
+    from .maniskill.place_sphere_cfg import PlaceSphereCfg
+    from .maniskill.poke_cube_cfg import PokeCubeCfg
+    from .maniskill.pull_cobe_cfg import PullCubeCfg
+    from .maniskill.pull_cube_tool_cfg import PullCubeToolCfg
+    from .maniskill.push_cube_cfg import PushCubeCfg
+    from .maniskill.roll_ball_cfg import RollBallCfg
     from .maniskill.stack_cube_cfg import StackCubeCfg
+    from .maniskill.stack_pyramid_cfg import StackPyramidCfg
     from .rlafford.rl_afford_open_door_cfg import RlAffordOpenDoorCfg
     from .rlbench.basketball_in_hoop_cfg import BasketballInHoopCfg
     from .rlbench.close_box_cfg import CloseBoxCfg

@@ -429,6 +429,9 @@ def main():
             ## CollectingDemo --> Timeout
             demo_idx = demo_idxs[env_id]
             log.info(f"Demo {demo_idx} in Env {env_id} timed out!")
+
+            collector.save(demo_idx)  # save the failure demo to debug
+
             collector.mark_fail(demo_idx)
             collector.delete(demo_idx)
             failure_count[env_id] += 1

@@ -32,6 +32,7 @@ from .checkers import (
     _WalkChecker,
 )
 from .detectors import (
+    CombinedDetector,
     Relative2DSphereDetector,
     Relative3DSphereDetector,
     RelativeBboxDetector,

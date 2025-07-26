@@ -226,7 +226,7 @@ def get_task(task_id: str) -> BaseTaskCfg:
     import_path = f"metasim.cfg.tasks.{prefix}" if prefix is not None else "metasim.cfg.tasks"
     module = importlib.import_module(import_path)
     task_cls = getattr(module, f"{task_name_camel}Cfg")
-    return task_cls
+    return task_cls()
 
 
 def register_task(task_id: str):
