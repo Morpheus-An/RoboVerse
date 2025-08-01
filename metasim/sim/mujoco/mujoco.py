@@ -424,7 +424,6 @@ class MujocoHandler(BaseSimHandler):
 
         return TensorState(objects=object_states, robots=robot_states, cameras=camera_states, extras=extras, sensors={})
 
-
     def _set_root_state(self, obj_name, obj_state, zero_vel=False):
         """Set root position and rotation."""
         if "pos" not in obj_state and "rot" not in obj_state:
