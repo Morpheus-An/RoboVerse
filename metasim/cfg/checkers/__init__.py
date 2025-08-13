@@ -30,6 +30,8 @@ from .checkers import (
     _StandChecker,
     _UpAxisRotationChecker,
     _WalkChecker,
+    RotationAxisAngleChecker,
+    PositionShiftRangeChecker,
 )
 from .detectors import (
     CombinedDetector,

@@ -22,6 +22,11 @@ def __getattr__(name):
     from .roll_ball_cfg import RollBallCfg
     from .stack_cube_cfg import StackCubeCfg
     from .stack_pyramid_cfg import StackPyramidCfg
+    from .draw_svg import DrawSVGCfg
+    from .draw_triangle import DrawTriangleCfg
+    from .lift_peg_upright import LiftPegUpRightCfg
+    from .peg_insertion_side import PegInsertionSide0Cfg
+    from .plug_charger_cfg import PlugChargerCfg
 
     if name in locals():
         return locals()[name]

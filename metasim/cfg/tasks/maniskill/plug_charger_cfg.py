@@ -22,27 +22,27 @@ class PlugChargerCfg(ManiskillTaskCfg):
         RigidObjCfg(
             name="base",
             usd_path="roboverse_data/assets/maniskill/charger/base/base.usd",
-            urdf_path="roboverse_data/assets/maniskill/charger/base.urdf",
+            # urdf_path="roboverse_data/assets/maniskill/charger/base.urdf",
             physics=PhysicStateType.GEOM,
             fix_base_link=True,
         ),
         RigidObjCfg(
             name="charger",
             usd_path="roboverse_data/assets/maniskill/charger/charger/charger.usd",
-            urdf_path="roboverse_data/assets/maniskill/charger/charger.urdf",
+            # urdf_path="roboverse_data/assets/maniskill/charger/charger.urdf",
             physics=PhysicStateType.RIGIDBODY,
         ),
     ]
     traj_filepath = "roboverse_data/trajs/maniskill/plug_charger/trajectory-franka_v2.pkl"
 
-    checker = DetectedChecker(
-        obj_name="charger",
-        detector=RelativeBboxDetector(
-            base_obj_name="base",
-            relative_quat=[1, 0, 0, 0],
-            relative_pos=[0, 0, 0],
-            checker_lower=[-0.02, -0.075, -0.075],
-            checker_upper=[0.02, 0.075, 0.075],
-            # debug_vis=True,
-        ),
-    )
+    # checker = DetectedChecker(
+    #     obj_name="charger",
+    #     detector=RelativeBboxDetector(
+    #         base_obj_name="base",
+    #         relative_quat=[1, 0, 0, 0],
+    #         relative_pos=[0, 0, 0],
+    #         checker_lower=[-0.02, -0.075, -0.075],
+    #         checker_upper=[0.02, 0.075, 0.075],
+    #         # debug_vis=True,
+    #     ),
+    # )

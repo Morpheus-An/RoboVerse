@@ -41,6 +41,11 @@ def __get_quick_ref():
     from .maniskill.roll_ball_cfg import RollBallCfg
     from .maniskill.stack_cube_cfg import StackCubeCfg
     from .maniskill.stack_pyramid_cfg import StackPyramidCfg
+    from .maniskill.draw_svg import DrawSVGCfg
+    from .maniskill.draw_triangle import DrawTriangleCfg
+    from .maniskill.lift_peg_upright import LiftPegUpRightCfg
+    from .maniskill.peg_insertion_side import PegInsertionSide0Cfg
+    from .maniskill.plug_charger_cfg import PlugChargerCfg
     from .rlafford.rl_afford_open_door_cfg import RlAffordOpenDoorCfg
     from .rlbench.basketball_in_hoop_cfg import BasketballInHoopCfg
     from .rlbench.close_box_cfg import CloseBoxCfg

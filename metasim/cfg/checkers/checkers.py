@@ -609,3 +609,94 @@ class _HighbarChecker(BaseChecker):
         states = handler.get_states()
         terminated = [False] * len(states)
         return torch.tensor(terminated)
+
+
+@configclass
+class RotationAxisAngleChecker(BaseChecker):
+    """Check if the angle between the selected ``axis`` of the object and the ``target_vector`` in world coordinate is within a ``radian_threshold``
+
+    - ``obj_name``
+    - ``radian_threshold`` should be in the range of [0, pi].
+    - ``target_vector`` should be difined in world coordinate system
+    - ``axis`` should be one of "x", "y", "z". default is "z".
+    """
+
+    obj_name: str = MISSING
+    """The name of the object to be checked."""
+    target_vector: tuple[float, float, float] = MISSING
+    """The target vector defined in world coordinate system, [x, y, z]"""
+    radian_range: float = MISSING
+    """The threshold for the angle. (in radian)"""
+    axis: Literal["x", "y", "z"] = "z"
+    """The axis to measure the angle."""
+
+    def reset(self, handler: BaseSimHandler, env_ids: list[int] | None = None):
+        if env_ids is None:
+            env_ids = list(range(handler.num_envs))
+
+        if not hasattr(self, "init_quat"):
+            self.init_quat = torch.zeros(handler.num_envs, 4, dtype=torch.float32, device=handler.device)
+
+        self.init_quat[env_ids] = handler.get_rot(self.obj_name, env_ids=env_ids)
+
+    def check(self, handler: BaseSimHandler) -> torch.BoolTensor:
+        cur_quat = handler.get_rot(self.obj_name)
+        object_rot_mat = matrix_from_quat(cur_quat)[0]
+        v_object = {"x": object_rot_mat[:,0], "y": object_rot_mat[:,1], "z": object_rot_mat[:,2]}[self.axis]
+        v_target = torch.Tensor(self.target_vector).to(v_object.device)
+
+        # # ensure cuda device
+        # if torch.cuda.is_available():
+        #     v_target = v_target.to("cuda")
+
+        cos_theta = torch.dot(v_target, v_object) / (torch.norm(v_target) * torch.norm(v_object))
+        angle_rad = torch.arccos(cos_theta)
+
+        log.debug(f"Angle between selected {self.axis} axis and target vector {self.target_vector} is: {angle_rad} in radians")
+        return angle_rad<self.radian_range
+        # return cur_quat[0]>0
+
+@configclass
+class PositionShiftRangeChecker(BaseChecker):
+    """Check if the object with ``obj_name`` was moved between ``distance_lower`` and ``distance_upper`` in given ``axis``.
+
+    - ``distance_lower`` is negative for moving towards the negative direction and positive for moving towards the positive direction. Lower limit
+    - ``distance_upper`` is negative for moving towards the negative direction and positive for moving towards the positive direction. Upper limit
+    - ``max_distance`` is the maximum distance the object can move.
+    - ``axis`` should be one of "x", "y", "z".
+    """
+
+    obj_name: str = MISSING
+    """The name of the object to be checked."""
+    distance_lower: float = MISSING
+    """The lower limit for the position shift. (with direction, in meters)"""
+    distance_upper: float = MISSING
+    """The upper limit for the position shift. (with direction, in meters)"""
+    bounding_distance: float = 1e2
+    """The maximum distance the object can move. (in meters)"""
+    axis: Literal["x", "y", "z"] = MISSING
+    """The axis to detect the position shift along."""
+
+    def reset(self, handler: BaseSimHandler, env_ids: list[int] | None = None):
+        if env_ids is None:
+            env_ids = list(range(handler.num_envs))
+
+        if not hasattr(self, "init_pos"):
+            self.init_pos = torch.zeros((handler.num_envs, 3), dtype=torch.float32, device=handler.device)
+
+        tmp = handler.get_pos(self.obj_name, env_ids=env_ids)
+        assert tmp.shape == (len(env_ids), 3)
+        self.init_pos[env_ids] = tmp
+
+    def check(self, handler: BaseSimHandler) -> torch.BoolTensor:
+        cur_pos = handler.get_pos(self.obj_name)
+        if torch.isnan(cur_pos).any():
+            log.debug(f"Object {self.obj_name} moved to nan position")
+            return torch.ones(cur_pos.shape[0], dtype=torch.bool, device=handler.device)
+        dim = {"x": 0, "y": 1, "z": 2}[self.axis]
+        dis_diff = cur_pos - self.init_pos
+        dim_diff = dis_diff[:, dim]
+        tot_dis = torch.norm(dis_diff, dim=-1)
+        log.debug(f"Object {self.obj_name} moved {tensor_to_str(dim_diff)} meters in {self.axis} direction")
+
+        return (dim_diff >= self.distance_lower)&(dim_diff <= self.distance_upper) * (tot_dis <= self.bounding_distance)

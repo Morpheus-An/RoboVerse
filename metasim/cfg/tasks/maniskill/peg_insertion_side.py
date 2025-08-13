@@ -17,12 +17,12 @@ class _PegInsertionSideBaseCfg(ManiskillTaskCfg):
     This class should be derived to specify the exact configuration (asset paths and demo path) of the task.
     """
 
-    episode_length = 250
+    episode_length = 200
     checker = DetectedChecker(
         obj_name="stick",
         detector=RelativeBboxDetector(
             base_obj_name="box",
-            relative_quat=[1, 0, 0, 0],
+            relative_quat=[1, 0, 0, 0], # no rotation
             relative_pos=[-0.05, 0, 0],
             checker_lower=[-0.05, -0.1, -0.1],
             checker_upper=[0.05, 0.1, 0.1],
@@ -5363,13 +5363,15 @@ class PegInsertionSide0Cfg(_PegInsertionSideBaseCfg):
     objects = [
         RigidObjCfg(
             name="box",
-            usd_path="roboverse_data/assets/maniskill/peg/base_0.usd",
+            # mesh_path = '/home/blyu/Code/maniskill_asset/base_0.usd',
+            usd_path="roboverse_data/assets/maniskill/peg/base_0/base_0.usd",
             physics=PhysicStateType.GEOM,
             fix_base_link=True,
         ),
         RigidObjCfg(
             name="stick",
-            usd_path="roboverse_data/assets/maniskill/peg/stick_0.usd",
+            # mesh_path = '/home/blyu/Code/maniskill_asset/base_0.usd',
+            usd_path="roboverse_data/assets/maniskill/peg/stick_0/stick_0.usd",
             physics=PhysicStateType.RIGIDBODY,
         ),
     ]

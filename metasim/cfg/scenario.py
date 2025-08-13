@@ -83,7 +83,9 @@ class ScenarioCfg:
             if "robots" in TaskCls.__dataclass_fields__.keys():
                 self.task = TaskCls(robots=self.robots)
             else:
-                self.task = TaskCls()
+                # self.task = TaskCls()
+                self.task = TaskCls
+
         if isinstance(self.scene, str):
             self.scene = get_scene(self.scene)
 
