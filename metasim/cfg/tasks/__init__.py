@@ -31,9 +31,14 @@ def __get_quick_ref():
     from .libero.libero_objects.libero_pick_orange_juice import LiberoPickOrangeJuiceCfg
     from .libero.libero_objects.libero_pick_salad_dressing import LiberoPickSaladDressingCfg
     from .libero.libero_objects.libero_pick_tomato_sauce import LiberoPickTomatoSauceCfg
+    from .maniskill.draw_svg import DrawSVGCfg
+    from .maniskill.draw_triangle import DrawTriangleCfg
+    from .maniskill.lift_peg_upright import LiftPegUpRightCfg
+    from .maniskill.peg_insertion_side import PegInsertionSide0Cfg
     from .maniskill.pick_cube_cfg import PickCubeCfg
     from .maniskill.pick_single_ycb import PickSingleYcbCrackerBoxCfg
     from .maniskill.place_sphere_cfg import PlaceSphereCfg
+    from .maniskill.plug_charger_cfg import PlugChargerCfg
     from .maniskill.poke_cube_cfg import PokeCubeCfg
     from .maniskill.pull_cobe_cfg import PullCubeCfg
     from .maniskill.pull_cube_tool_cfg import PullCubeToolCfg
