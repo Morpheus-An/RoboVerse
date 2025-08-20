@@ -9,6 +9,8 @@ from .checkers import (
     JointPosChecker,
     JointPosShiftChecker,
     PositionShiftChecker,
+    PositionShiftRangeChecker,
+    RotationAxisAngleChecker,
     RotationShiftChecker,
     _CrawlChecker,
     _CubeChecker,

@@ -10,11 +10,34 @@ from .maniskill_task_cfg import ManiskillTaskCfg
 
 @configclass
 class _PegInsertionSideBaseCfg(ManiskillTaskCfg):
-    """The peg-insertion task from ManiSkill.
+    """Insert a peg into a hole from side.
 
+    .. Description::
+
+    ### title:
+    peg_insertion_side
+
+    ### group:
+    maniskill
+
+    ### description:
     The robot is tasked to pick up a peg on the ground and insert it into the hold of a fixed block.
-    Note that in this implementation, the hole on the base is slightly enlarged to reduce the difficulty due to the dynamics gap.
-    This class should be derived to specify the exact configuration (asset paths and demo path) of the task.
+
+    ### randomizations:
+    -
+
+    ### success:
+    - not yet implemented
+
+    ### badges:
+    - demos
+
+    ### official_url:
+    https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#peginsertionside-v1
+
+    ### platforms:
+
+    ### notes:
     """
 
     episode_length = 250
@@ -5363,13 +5386,15 @@ class PegInsertionSide0Cfg(_PegInsertionSideBaseCfg):
     objects = [
         RigidObjCfg(
             name="box",
-            usd_path="roboverse_data/assets/maniskill/peg/base_0.usd",
+            usd_path="roboverse_data/assets/maniskill/peg/base_0/base_0.usd",
+            urdf_path="roboverse_data/assets/maniskill/peg/base_0/base_0.urdf",
             physics=PhysicStateType.GEOM,
             fix_base_link=True,
         ),
         RigidObjCfg(
             name="stick",
-            usd_path="roboverse_data/assets/maniskill/peg/stick_0.usd",
+            usd_path="roboverse_data/assets/maniskill/peg/stick_0/stick_0.usd",
+            urdf_path="roboverse_data/assets/maniskill/peg/stick_0/stick_0.urdf",
             physics=PhysicStateType.RIGIDBODY,
         ),
     ]

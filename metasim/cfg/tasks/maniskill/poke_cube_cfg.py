@@ -69,6 +69,7 @@ class PokeCubeCfg(ManiskillTaskCfg):
             name="peg",
             usd_path="roboverse_data/assets/maniskill/PokeCube/peg/usd/stick.usd",
             mjcf_path="roboverse_data/assets/maniskill/PokeCube/peg/mjcf/stick.xml",
+            urdf_path="roboverse_data/assets/maniskill/PokeCube/peg/urdf/stick.urdf",
             physics=PhysicStateType.RIGIDBODY,
             fix_base_link=False,
         ),

@@ -12,6 +12,10 @@ __CANDIDATE_MODULES = [
 
 
 def __getattr__(name):
+    from .draw_svg import DrawSVGCfg
+    from .draw_triangle import DrawTriangleCfg
+    from .lift_peg_upright import LiftPegUpRightCfg
+    from .peg_insertion_side import PegInsertionSide0Cfg
     from .pick_cube_cfg import PickCubeCfg
     from .place_sphere_cfg import PlaceSphereCfg
     from .plug_charger_cfg import PlugChargerCfg
