@@ -40,10 +40,7 @@ class PokeCubeCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#pokecube-v1
     ### platforms:
-    - mujoco
-    - isaaclab
-    ### video_url:
-    poke_cube.mp4
+
     ### notes:
     """
 
@@ -69,6 +66,7 @@ class PokeCubeCfg(ManiskillTaskCfg):
             name="peg",
             usd_path="roboverse_data/assets/maniskill/PokeCube/peg/usd/stick.usd",
             mjcf_path="roboverse_data/assets/maniskill/PokeCube/peg/mjcf/stick.xml",
+            urdf_path="roboverse_data/assets/maniskill/PokeCube/peg/urdf/stick.urdf",
             physics=PhysicStateType.RIGIDBODY,
             fix_base_link=False,
         ),

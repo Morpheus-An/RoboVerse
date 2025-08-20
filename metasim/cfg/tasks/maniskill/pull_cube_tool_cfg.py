@@ -67,6 +67,7 @@ class PullCubeToolCfg(ManiskillTaskCfg):
             name="tool",
             mjcf_path="roboverse_data/assets/maniskill/PullCubeTool/tool/mjcf/PullCubeTool_tool.xml",
             usd_path="roboverse_data/assets/maniskill/PullCubeTool/tool/usd/PullCubeTool_tool.usd",
+            urdf_path="roboverse_data/assets/maniskill/PullCubeTool/tool/urdf/PullCubeTool_tool.urdf",
             physics=PhysicStateType.RIGIDBODY,
         ),
     ]

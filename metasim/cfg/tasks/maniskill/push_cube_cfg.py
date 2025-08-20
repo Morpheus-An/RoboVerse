@@ -36,10 +36,7 @@ class PushCubeCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#pushcube-v1
     ### platforms:
-    - mujoco
-    - isaaclab
-    ### video_url:
-    push_cube.mp4
+
     ### notes:
     """
 

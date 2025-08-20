@@ -50,6 +50,7 @@ class PlaceSphereCfg(ManiskillTaskCfg):
             name="bin",
             usd_path="roboverse_data/assets/maniskill/PlaceSphere/bin/usd/PlaceSphere_bin.usd",
             mjcf_path="roboverse_data/assets/maniskill/PlaceSphere/bin/mjcf/PlaceSphere_bin.xml",
+            urdf_path="roboverse_data/assets/maniskill/PlaceSphere/bin/urdf/PlaceSphere_bin.urdf",
             physics=PhysicStateType.RIGIDBODY,
         ),
         PrimitiveSphereCfg(
