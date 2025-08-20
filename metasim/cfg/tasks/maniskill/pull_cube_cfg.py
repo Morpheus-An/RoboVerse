@@ -37,7 +37,11 @@ class PullCubeCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#pullcube-v1
     ### platforms:
+    - mujoco
+    - isaaclab
 
+    ### video_url:
+    pull_cube.mp4
     ### notes:
     """
 

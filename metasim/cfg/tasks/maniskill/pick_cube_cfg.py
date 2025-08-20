@@ -49,7 +49,8 @@ class PickCubeCfg(ManiskillTaskCfg):
     pick_cube.mp4
 
     ### platforms:
-
+    - mujoco
+    - isaaclab
 
     ### notes:
     The pick up cube task from ManiSkill was adapted for RoboVerse.

@@ -29,9 +29,20 @@ class PlaceSphereCfg(ManiskillTaskCfg):
     - sparse
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#placesphere-v1
+    ### poster_url:
+    (none)
+
+    ---
+    ### video_url:
+    place_sphere.mp4
+
     ### platforms:
+    - mujuco
+    - isaaclab
 
     ### notes:
+    (none)
+
     """
 
     objects = [

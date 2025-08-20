@@ -35,7 +35,7 @@ def __get_quick_ref():
     from .maniskill.pick_single_ycb import PickSingleYcbCrackerBoxCfg
     from .maniskill.place_sphere_cfg import PlaceSphereCfg
     from .maniskill.poke_cube_cfg import PokeCubeCfg
-    from .maniskill.pull_cobe_cfg import PullCubeCfg
+    from .maniskill.pull_cube_cfg import PullCubeCfg
     from .maniskill.pull_cube_tool_cfg import PullCubeToolCfg
     from .maniskill.push_cube_cfg import PushCubeCfg
     from .maniskill.roll_ball_cfg import RollBallCfg

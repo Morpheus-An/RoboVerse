@@ -35,6 +35,11 @@ class PullCubeToolCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#pullcubetool-v1
     ### platforms:
+    - mujoco
+    - isaaclab
+
+    ### video_url:
+    pull_cube_tool.mp4
 
     ### notes:
     - note that the checker is not the same as the one in the original task. Current chekcer checks if the cube is within a sphere of radius reach_distance around the base of the robot.

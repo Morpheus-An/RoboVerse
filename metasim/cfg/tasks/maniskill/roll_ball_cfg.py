@@ -37,7 +37,10 @@ class RollBallCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#rollball-v1
     ### platforms:
-
+    - mujoco
+    - isaaclab
+    ### video_url:
+    roll_ball.mp4
     ### notes:
     """
 

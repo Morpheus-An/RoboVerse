@@ -16,7 +16,7 @@ def __getattr__(name):
     from .place_sphere_cfg import PlaceSphereCfg
     from .plug_charger_cfg import PlugChargerCfg
     from .poke_cube_cfg import PokeCubeCfg
-    from .pull_cobe_cfg import PullCubeCfg
+    from .pull_cube_cfg import PullCubeCfg
     from .pull_cube_tool_cfg import PullCubeToolCfg
     from .push_cube_cfg import PushCubeCfg
     from .roll_ball_cfg import RollBallCfg

@@ -35,8 +35,10 @@ class StackPyramidCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#stackpyramid-v1
     ### platforms:
-
+    - mujoco
     ### notes:
+    ### video_url:
+    stack_pyramid.mp4
     """
 
     episode_length = 800

@@ -40,7 +40,10 @@ class PokeCubeCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#pokecube-v1
     ### platforms:
-
+    - mujoco
+    - isaaclab
+    ### video_url:
+    poke_cube.mp4
     ### notes:
     """
 
