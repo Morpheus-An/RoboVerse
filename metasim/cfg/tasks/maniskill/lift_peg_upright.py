@@ -16,7 +16,7 @@ class LiftPegUpRightCfg(ManiskillTaskCfg):
     .. Description::
 
     ### title:
-    ligt_peg_upright
+    lift_peg_upright
 
     ### group:
     maniskill
@@ -35,6 +35,9 @@ class LiftPegUpRightCfg(ManiskillTaskCfg):
 
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#liftpegupright-v1
+
+    ### video_url:
+    lift_peg_upright.mp4
 
     ### platforms:
 

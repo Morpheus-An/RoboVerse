@@ -33,7 +33,12 @@ class DrawSVGCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/drawing/index.html#drawsvg-v1
 
+    ### video_url:
+    draw_svg.mp4
+
     ### platforms:
+    - mujoco
+    - isaaclab
 
     ### notes:
     """
