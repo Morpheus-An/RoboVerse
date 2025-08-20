@@ -33,7 +33,12 @@ class DrawTriangleCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/drawing/index.html#drawtriangle-v1
 
+    ### video_url:
+    draw_triangle.mp4
+
     ### platforms:
+    - mujoco
+    - isaaclab
 
     ### notes:
     """

@@ -35,6 +35,9 @@ class _PegInsertionSideBaseCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#peginsertionside-v1
 
+    ### video_url:
+    peg_insertion_side0.mp4
+
     ### platforms:
 
     ### notes:

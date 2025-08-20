@@ -41,6 +41,9 @@ class PlugChargerCfg(ManiskillTaskCfg):
     ### official_url:
     https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#plugcharger-v1
 
+    ### video_url:
+    plug_charger.mp4
+
     ### platforms:
 
     ### notes:
